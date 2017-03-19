@@ -27,4 +27,9 @@ class RequestTest < ActiveSupport::TestCase
     assert_not @request.valid?
   end
 
+  test "amount can be a number or a string including $ and ," do
+    @request.amount = "$1,234.56"
+    assert @request.amount == 1234.56
+  end
+
 end
